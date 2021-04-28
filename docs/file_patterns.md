@@ -63,7 +63,7 @@ make_full_path("humidity", 3)
 ```
 
 We now need to define the "combine dimensions" of the file pattern.
-Comine dimensions are one of two types:
+Combine dimensions are one of two types:
 - {class}`pangeo_forge.patterns.ConcatDim`: The files should be combined by
   concatenating _the same variables_ sequentially along an axis.
   This is conceptually similar to Xarray's [concat](http://xarray.pydata.org/en/stable/combining.html#concatenate)
@@ -149,7 +149,7 @@ have one record of daily temperature? Ten?
 In general, Pangeo Forge does not assume there is a constant, known number of
 records in each file; instead it will discover this information by peeking into each file.
 But _if we know a-priori that there is a fixed number of records per file_, we can
-provide this as a hint, via `niterms_per_file` keyword in `ConcatDim`.
+provide this as a hint, via `nitems_per_file` keyword in `ConcatDim`.
 Providing this hint will allow Pangeo Forge to work more quickly because it
 doesn't have to peek into the files.
 
@@ -162,7 +162,7 @@ pattern = FilePattern(make_full_path, variable_merge_dim, time_concat_dim_fixed)
 pattern.concat_sequence_lens
 ```
 
-We can see the the property `concat_sequence_lens` now exposes the total logical
+We can see that the property `concat_sequence_lens` now exposes the total logical
 length of the `time` dimension, which is very useful to recipes.
 
 ```{note}
